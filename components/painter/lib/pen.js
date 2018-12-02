@@ -259,6 +259,20 @@ export default class Painter {
       height,
     } = this._preProcess(view);
     this.ctx.setFillStyle(view.css.color);
+    if (view.css.shadowOffsetX) {
+      this.ctx.shadowOffsetX = view.css.shadowOffsetX
+    }
+    if (view.css.shadowOffsetY) {
+      this.ctx.shadowOffsetY = view.css.shadowOffsetY
+    }
+    if (view.css.shadowBlur) {
+      this.ctx.shadowBlur = view.css.shadowBlur
+    }
+    if (view.css.shadowColor) {
+      this.ctx.shadowColor = view.css.shadowColor
+    }
+
+    this.ctx.setFillStyle(view.css.color);
     this.ctx.fillRect(-(width / 2), -(height / 2), width, height);
     this.ctx.restore();
   }
